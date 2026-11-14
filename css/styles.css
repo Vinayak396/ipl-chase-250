@@ -1,0 +1,754 @@
+/* IPL Chase 250 - Immersive Stadium Turf, 22-Yard Pitch, Wooden Wickets & Floodlight Night Theme */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --grass-dark: #051a0d;
+  --grass-med: #0b2d18;
+  --grass-light: #134224;
+  --grass-border: rgba(46, 204, 113, 0.25);
+  --pitch-clay: #b58d57;
+  --pitch-tan: #8a6438;
+  --pitch-chalk: #f8fafc;
+  --accent-gold: #f59e0b;
+  --accent-blue: #38bdf8;
+  --accent-green: #22c55e;
+  --accent-red: #ef4444;
+  --stump-wood: #d4a373;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Stadium Night Atmosphere: Dual Floodlight Towers & Mown Outfield Turf Stripes */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #040d07;
+  background-image: 
+    /* Dual Overhead Stadium Floodlight Tower Beams */
+    radial-gradient(ellipse 65% 35% at 15% 0%, rgba(255, 255, 255, 0.16) 0%, rgba(56, 189, 248, 0.08) 35%, transparent 75%),
+    radial-gradient(ellipse 65% 35% at 85% 0%, rgba(255, 255, 255, 0.16) 0%, rgba(245, 158, 11, 0.08) 35%, transparent 75%),
+    /* Floodlight Cones radiating from towers */
+    conic-gradient(from 145deg at 12% 0%, rgba(255,255,255,0.05), transparent 45deg),
+    conic-gradient(from 175deg at 88% 0%, rgba(255,255,255,0.05), transparent 45deg),
+    /* Outfield Mown Grass Alternating Stripes (Lush Cricket Lawn) */
+    repeating-linear-gradient(90deg,
+      rgba(11, 40, 22, 0.55) 0px,
+      rgba(11, 40, 22, 0.55) 85px,
+      rgba(7, 26, 14, 0.55) 85px,
+      rgba(7, 26, 14, 0.55) 170px
+    ),
+    /* Deep Stadium Sky to Turf Gradient */
+    linear-gradient(180deg, #050a12 0%, #07170e 30%, #031208 100%);
+  background-attachment: fixed;
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Stadium Boundary Rope Accent at Top */
+body::before {
+  content: '';
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #ffffff 0px, #ffffff 20px, #ef4444 20px, #ef4444 40px);
+  z-index: 39;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Typography Overrides */
+h1, h2, h3, .font-heading {
+  font-family: 'Chakra Petch', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-led {
+  font-family: 'Share Tech Mono', 'JetBrains Mono', monospace;
+}
+
+/* Floodlight Towers Nav Graphic */
+.floodlight-tower {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fef08a;
+  filter: drop-shadow(0 0 8px rgba(254, 240, 138, 0.8));
+}
+
+/* 22-Yard Pitch & Stadium Scenario Banner */
+.scenario-banner {
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(181, 141, 87, 0.25) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(8, 28, 16, 0.95) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(24, 18, 12, 0.95) 100%);
+  border: 1.5px solid rgba(181, 141, 87, 0.4);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 12px 35px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Stadium Pitch Chalk Crease Line Decoration */
+.scenario-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+}
+
+/* 3D Wooden Wickets & Bails Graphic Component */
+.wickets-svg-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.8));
+}
+
+/* Cricket Ball Graphic */
+.cricket-ball-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ef4444, #991b1b, #450a0a);
+  border: 1px solid #f87171;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cricket-ball-seam {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #ffffff 0px, #ffffff 2px, transparent 2px, transparent 4px);
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #000;
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+  filter: brightness(1.1);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+/* Left: Franchise Hero Banner with Turf Accents */
+.squad-hero-banner {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.squad-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f59e0b, #22c55e, #38bdf8);
+}
+
+/* Role Filter Tabs */
+.filter-tab {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.filter-tab.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #000000;
+  border-color: #22c55e;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(34, 197, 94, 0.4);
+}
+
+/* Player Cards in Draft */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  gap: 14px;
+}
+
+.player-card {
+  position: relative;
+  background: rgba(8, 20, 14, 0.88);
+  border: 1px solid rgba(46, 204, 113, 0.18);
+  border-radius: 14px;
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.player-card:hover:not(.card-disabled) {
+  transform: translateY(-3px);
+  border-color: rgba(245, 158, 11, 0.8);
+  box-shadow: 0 12px 24px -6px rgba(245, 158, 11, 0.35);
+  background: rgba(14, 32, 22, 0.95);
+}
+
+.player-card.card-selected {
+  border-color: #f59e0b;
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.5);
+  background: rgba(25, 45, 30, 1);
+}
+
+/* Disabled Card State */
+.player-card.card-disabled {
+  opacity: 0.45;
+  filter: grayscale(0.85);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 30, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(1.5px);
+}
+
+.disabled-badge {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  color: #fca5a5;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.badge-pill {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-pill.overseas {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.badge-pill.indian {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.badge-pill.wk {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.badge-pill.role {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+}
+
+.player-visual {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.player-avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.player-name {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.player-trait {
+  font-size: 11px;
+  color: #94a3b8;
+  display: block;
+  margin-top: 2px;
+}
+
+.card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.stat-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 3px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+.stat-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.stat-legendary .stat-val { color: #f59e0b; text-shadow: 0 0 10px rgba(245, 158, 11, 0.4); }
+.stat-elite .stat-val { color: #38bdf8; }
+.stat-solid .stat-val { color: #22c55e; }
+
+.draft-select-action {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.player-card:hover:not(.card-disabled) .draft-select-action {
+  background: var(--accent-gold);
+  color: #000000;
+  border-color: var(--accent-gold);
+}
+
+.draft-select-action.selected {
+  background: #f59e0b;
+  color: #000000;
+  border-color: #f59e0b;
+  font-weight: 900;
+}
+
+/* Reroll Button */
+.respin-btn {
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  color: #fca5a5;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 7px 14px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.respin-btn:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.45);
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+.respin-btn .badge {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 10px;
+}
+
+/* Right Side: Pavilion Dugout Board Card (Styled like a 22-Yard Pitch Pavilion) */
+.lineup-board-card {
+  background: 
+    linear-gradient(180deg, rgba(8, 26, 15, 0.96) 0%, rgba(12, 22, 34, 0.98) 100%);
+  border: 1.5px solid rgba(181, 141, 87, 0.45);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  position: relative;
+}
+
+.lineup-board-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: #ffffff;
+  opacity: 0.6;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Empty & Filled Spots on Pitch */
+.slot-spot {
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.slot-spot.empty {
+  border: 1.5px dashed rgba(181, 141, 87, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.slot-spot.empty:hover {
+  background: rgba(181, 141, 87, 0.15);
+  border-color: rgba(181, 141, 87, 0.7);
+}
+
+.slot-spot.slot-ready-drop {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  animation: pulseSlot 1.5s infinite;
+}
+
+.slot-spot.slot-targeted {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+}
+
+@keyframes pulseSlot {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.slot-spot.filled {
+  background: rgba(10, 24, 18, 0.9);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.slot-spot.filled:hover {
+  background: rgba(15, 35, 25, 0.95);
+  border-color: rgba(46, 204, 113, 0.6);
+}
+
+.slot-arrow-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.slot-arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.gauge-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.gauge-bar-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.gauge-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.rule-chip {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.rule-ok {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.rule-fail {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.start-sim-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #000;
+  font-weight: 900;
+  font-size: 13px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.5);
+  transition: all 0.2s;
+}
+
+.start-sim-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+}
+
+/* Giant LED Stadium Matrix Scoreboard */
+.stadium-scoreboard {
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(19, 78, 74, 0.2) 0%, transparent 60%),
+    linear-gradient(180deg, #070e17 0%, #03080d 100%);
+  border: 2px solid rgba(245, 158, 11, 0.4);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9), 0 15px 40px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.stadium-scoreboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #f59e0b 0px, #f59e0b 20px, #38bdf8 20px, #38bdf8 40px);
+}
+
+.sim-ctrl-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-ctrl-btn.active {
+  background: var(--accent-gold);
+  color: #000;
+  border-color: var(--accent-gold);
+}
+
+.sim-ctrl-btn.skip {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Ball Pills */
+.ball-pill {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 800;
+  animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ball-pill.six {
+  background: #f59e0b;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+}
+
+.ball-pill.four {
+  background: #38bdf8;
+  color: #000000;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.ball-pill.wicket {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.8);
+}
+
+.ball-pill.run {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.ball-pill.dot {
+  background: rgba(255, 255, 255, 0.06);
+  color: #64748b;
+}
+
+/* Final Result Banner */
+.banner-win {
+  background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%);
+  border: 1.5px solid #10b981;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.banner-loss {
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);
+  border: 1.5px solid #ef4444;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.action-btn {
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn.copy {
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.action-btn.copy:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.action-btn.play-again {
+  background: #ffffff;
+  color: #000000;
+}
+
+.action-btn.play-again:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes popIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}

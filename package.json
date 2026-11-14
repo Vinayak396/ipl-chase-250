@@ -1,0 +1,21 @@
+{
+  "name": "ipl-chase-250",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "IPL version of 500-0.com: Chase 250 runs in 20 overs by drafting legendary IPL squads across history.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "cricket",
+    "ipl",
+    "simulation",
+    "draft",
+    "thechase500",
+    "500-0"
+  ],
+  "author": "",
+  "license": "MIT"
+}
